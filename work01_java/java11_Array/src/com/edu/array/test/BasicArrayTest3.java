@@ -16,11 +16,17 @@ public class BasicArrayTest3 {
 		// 1. 선언 + 2. 생성 + 3. 초기화
 		int[] arr = {11, 22, 33};
 		
-		for(int i=0; i<arr.length; i++) {
-			System.out.println(arr[i]);
+		
+		// 3.
+//		for(int i=0; i<arr.length; i++) {
+//			System.out.println(arr[i]);
+//		}
+//		
+		// 향상된 for문: 뭐가 어디서 돌아가는가?
+		for(int num : arr) {
+			System.out.println(num);
 		}
 		
-	
 	}
 
 }
