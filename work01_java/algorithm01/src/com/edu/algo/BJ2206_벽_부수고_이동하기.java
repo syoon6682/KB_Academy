@@ -42,9 +42,11 @@ public class BJ2206_벽_부수고_이동하기 {
 		
 		while(test.size()>0) {
 			cnt ++;
+			System.out.println(test.size());
 			int testLen = test.size();
 			for(int i=0; i < testLen; i++) {
 				XY temp = test.poll();
+				System.out.println(test.size());
 				int x = temp.x;
 				int y = temp.y;
 				for(int j=0; j<4; j++) {
@@ -86,8 +88,8 @@ public class BJ2206_벽_부수고_이동하기 {
 			char[] temp = list.nextToken().toCharArray();	
 			map[i] = temp;
 		}
-		Queue<XY> test = new LinkedList<>();
-		visited = new HashSet<>(); 
+		Queue<XY> test = new LinkedList<XY>();
+		visited = new HashSet<XY>(); 
 		
 		
 		// 벽 부수기
