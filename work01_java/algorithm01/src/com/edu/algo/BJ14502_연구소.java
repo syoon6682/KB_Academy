@@ -23,20 +23,19 @@ public class BJ14502_연구소 {
 	
 	static void setWall(int n, int c, int idx) {
 		if (c == n) {
-			String[][] mapCopy = map.clone();
-			for(int[] w: wall) {
-				System.out.println(Arrays.toString(w));
+			String[][] mapCopy = new String[N][M];
+			for (int i=0; i<N; i++) {
+				for (int j=0; j<M; j++) {
+					mapCopy[i][j] = map[i][j];
+				}
 			}
-			System.out.println();
 			
 			for(int i=0; i<3; i++) {
 				int x = wall.get(i)[0];
 				int y = wall.get(i)[1];
-				mapCopy[x][y] = "1";
-//			System.out.println(Arrays.deepToString(mapCopy));
-			virus(mapCopy);				
+				mapCopy[x][y] = "1";			
 			}
-		} else if (idx == zeroSize) {
+			virus(mapCopy);	} else if (idx == zeroSize) {
 			return;
 		} else {
 			for (int i=idx; i<zeroSize; i++) {
@@ -52,8 +51,8 @@ public class BJ14502_연구소 {
 		for(int[] t : two) {
 			q.add(t);
 		}
-		
 		int qSize = q.size();
+		
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
 		
@@ -66,7 +65,7 @@ public class BJ14502_연구소 {
 				for(int j=0; j<4; j++) {
 					int newX=x+dx[j];
 					int newY=y+dy[j];
-					if(newX>=0 && newX<N && newY>=0 && newY<M && copy[newX][newY]=="0") {
+					if(newX>=0 && newX<N && newY>=0 && newY<M && copy[newX][newY].equals("0")) {
 						int[]temp = {newX,newY};
 						q.add(temp);
 					}
@@ -79,7 +78,7 @@ public class BJ14502_연구소 {
 		int local=0;
 		for(int i=0; i<N;i++) {
 			for(int j=0; j<M; j++) {
-				if(copy[i][j] == "0") {
+				if(copy[i][j].equals("0")) {
 					local += 1;
 				}
 			}
@@ -100,7 +99,6 @@ public class BJ14502_연구소 {
 		global = 0;
 		map = new String[N][M];
 		
-		
 		for(int i=0; i<N; i++) {
 			StringTokenizer temp = new StringTokenizer(br.readLine(), " ");
 			for(int j=0; j<M; j++) {
@@ -117,9 +115,7 @@ public class BJ14502_연구소 {
 		}
 		
 		zeroSize = zero.size();
-		
-		
-		// 벽 설치 위치 선정
+
 		setWall(3, 0, 0);
 		
 		System.out.println(global);
