@@ -20,59 +20,56 @@ public class BJ2206_벽_부수고_이동하기 {
 	static int N;
 	static int M;
 	static int min = 1000001;
-	static HashSet<XY> visited;
 	static char[][] map;
 	static int[] end;
 	
-	public static class XY{
-		int x;
-		int y;
+	static char[][] mapClone(){
+		char[][] answer = new char[N][M];
 		
-		public void setter(int x, int y) {
-			this.x = x;
-			this.y = y;
+		for(int i=0; i<N; i++) {
+			for(int j=0; j<M; j++) {
+				answer[i][j] = map[i][j];
+			}
 		}
+		return answer;
 	}
-
 	
-	public static void bfs(Queue<XY> test) {
+	static int bfs(char[][] clone) {
 		int cnt = 0;
+		Queue<int[]> q = new LinkedList<>();
 		int[] dx = {1, -1, 0, 0};
 		int[] dy = {0, 0, 1, -1};
+		clone[0][0] = 2;
+		int[] start = {0, 0};
+		q.add(start);
 		
-		while(test.size()>0) {
-			cnt ++;
-			System.out.println(test.size());
-			int testLen = test.size();
-			for(int i=0; i < testLen; i++) {
-				XY temp = test.poll();
-				System.out.println(test.size());
-				int x = temp.x;
-				int y = temp.y;
+		int qSize = q.size();
+		while(qSize>0) {
+			for(int i=0; i<qSize; i++) {
+				int[] temp = q.poll();
+				
 				for(int j=0; j<4; j++) {
-					int new_x = x+dx[j];
-					int new_y = y+dy[j];
-					if(new_x >= 0 && new_x <N && new_y >= 0 && new_y<M) {
-						XY obj = new XY();
-						obj.setter(new_x,  new_y);
-						if(map[new_x][new_y] == '0' && !visited.contains(obj) ) {
-							test.add(obj);
-							visited.add(obj);
-						}
+					int newX = temp[0] + dx[j];
+					int newY = temp[1] + dy[j];
+					if (newX>=0 && newX<N && newY>=0 && newY<M && clone[newX][newY] == '0') {
+						int[] pt = {newX, newY};
+						clone[newX][newY] = '2';
+						q.add(pt);
 					}
 				}
 			}
-			System.out.println(visited.size());
-//			System.out.println(visited.size());
 			
-			if (visited.contains(end)) {
-				if (min > cnt) {
-					min = cnt;
-				}
-				break;
+			qSize = q.size();
+			cnt++;
+			if(clone[N-1][M-1] == '2') {
+				return cnt+1;
 			}
+			
 		}
+		
+		return 0;
 	}
+	
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -88,30 +85,30 @@ public class BJ2206_벽_부수고_이동하기 {
 			char[] temp = list.nextToken().toCharArray();	
 			map[i] = temp;
 		}
-		Queue<XY> test = new LinkedList<XY>();
-		visited = new HashSet<XY>(); 
-		
+
 		
 		// 벽 부수기
+		int idx = 0;
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
 				if (map[i][j]=='1') {
-					map[i][j] = '0';
-					test.clear();
-					visited.clear();
-					XY start = new XY();
-					start.setter(i, j);
-					visited.add(start);
-					test.add(start);
-
-					bfs(test);
+					idx++;
+					char[][] clone = mapClone();
+					clone[i][j] = '0';
+					int local = bfs(clone);
+					if (local != 0 && min > local) {
+						min = local;
+					}
 					
-					map[i][j] = '1';
 				}
 			}
 		}
-		
-		System.out.println(min);
+	
+		if(min ==1000001) {
+			System.out.println(-1);
+		} else {
+			System.out.println(min);	
+		}
 		
 	}
 
