@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -19,25 +18,33 @@ public class BJ1325_효율적인_해킹 {
 	
 	static int bfs(int n) {
 		Queue<Integer> q = new LinkedList<>();
-		HashSet<Integer> set = new HashSet<>();
+		int[] visited = new int[10001];
 		
+		int cnt = 1;
 		q.add(n);
-		set.add(n);
+		visited[n] = 1;
 		int qSize = q.size();
-		while(qSize>0) {
-			for (int i=0; i<qSize; i++) {
-				int temp = q.poll();
-				for(int t : map2.get(temp)) {
-					if (!set.contains(t)) {
-						set.add(t);
-						q.add(t);
+		if (qSize==0) {
+			return cnt;
+		}
+		else {
+			while(qSize>0) {
+				cnt++;
+				for (int i=0; i<qSize; i++) {
+					int temp = q.poll();
+					for(int t : map2.get(temp)) {
+						if (visited[t]==0) {
+							visited[t] = 1;
+							q.add(t);
+						}
 					}
 				}
+				qSize = q.size();
 			}
-			qSize = q.size();
+			
+			return cnt;
 		}
-		System.out.println(set.size());
-		return set.size();
+		
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -68,7 +75,8 @@ public class BJ1325_효율적인_해킹 {
 			map.get(x).add(y);
 			map2.get(y).add(x);
 		}
-		
+		System.out.println(map);
+		System.out.println(map2);
 		
 		ArrayList<Integer> answer = new ArrayList<>();
 		
@@ -86,6 +94,7 @@ public class BJ1325_효율적인_해킹 {
 				}
 			}
 		}
+		
 
 		for(int a : answer) {
 			System.out.print(a + " ");
