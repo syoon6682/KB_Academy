@@ -11,8 +11,9 @@ public class BJ2805_나무_자르기 {
 	static int M;
 	
 	static int binary(int s, int e) {
-		if (s==e) {
-			return e;
+		
+		while (s!=e) {
+			
 		}
 		
 		int mid = (s+e)/2;

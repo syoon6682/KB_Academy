@@ -10,7 +10,7 @@ public class BJ12851_숨바꼭질2 {
 	
 	static Queue<Integer> q = new LinkedList<>();
 	static HashMap<Integer, Integer> map = new HashMap<>();
-	static int[] index = new int[100001];
+	static int[] index = new int[200001];
 	static int N;
 	static int K;
 	static int cnt = 0;
@@ -28,7 +28,7 @@ public class BJ12851_숨바꼭질2 {
 		if (temp2 >= 0 && index[temp2] == 0) {
 			putKey(temp, temp2);
 		}
-		if (temp != 0 && temp3 <= 100000 && index[temp3] == 0) {		
+		if (temp != 0 && temp3 <= 200000 && index[temp3] == 0) {		
 			putKey(temp, temp3);
 		}
 	}
@@ -63,8 +63,13 @@ public class BJ12851_숨바꼭질2 {
 			
 			cnt++;
 		}
-		System.out.println(cnt);
-		System.out.println(index[K]);
 		
+		if (cnt == 0) {
+			System.out.println(cnt);
+			System.out.println(0);
+		} else {
+			System.out.println(cnt);
+			System.out.println(index[K]);
+		}
 	}
 }
