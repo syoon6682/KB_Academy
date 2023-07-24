@@ -14,6 +14,10 @@ public class Employee {
 		this.salary = salary;
 	}
 	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getDetails() {
 		return "name=" + name + ", birthday=" + birthday + ", salary=" + salary;
 	}

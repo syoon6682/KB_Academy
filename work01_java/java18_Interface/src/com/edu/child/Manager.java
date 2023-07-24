@@ -43,8 +43,20 @@ public class Manager extends Employee{
 	
 	
 	@Override
-	public String getDetails() {
+	public String toString() {
 		// TODO Auto-generated method stub
-		return super.getDetails() + ", dept = " + dept;
+		return super.toString() + ", dept = " + dept;
 	}
+
+
+	public String getDept() {
+		return dept;
+	}
+
+
+	public void changeDept(String dept) {
+		this.dept = dept;
+	}
+	
+	
 }
