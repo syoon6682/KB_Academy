@@ -7,6 +7,20 @@ import com.edu.service.EmployeeService;
 
 public class EmployeeServiceImpl implements EmployeeService{
 	
+	// 1
+	static private EmployeeServiceImpl service = new EmployeeServiceImpl();
+
+	// 2
+	private EmployeeServiceImpl() {
+		System.out.println("Client Request Ready...");
+	}
+	
+	// 3.
+	public static EmployeeServiceImpl getInstance() {
+		return service;
+	}
+	
+	
 	@Override
 	public void printAllEmployee(Employee[] emps) {
 		for (Employee e : emps) {

@@ -19,7 +19,7 @@ public class polyTest3 {
 		};
 		
 		// service 객체 생성 == 메모리에 기능들을 로딩시킴
-		EmployeeService service = new EmployeeServiceImpl();		
+		EmployeeService service = EmployeeServiceImpl.getInstance();		
 
 		// ========== 서비스 기능을 호출 ================
 		
