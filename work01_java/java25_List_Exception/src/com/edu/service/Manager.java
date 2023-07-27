@@ -6,6 +6,8 @@ import com.edu.domain.Employee;
 import com.edu.domain.Person;
 import com.edu.domain.Student;
 import com.edu.domain.Teacher;
+import com.edu.exception.DuplicateSSNException;
+import com.edu.exception.RecordNotFoundException;
 
 
 
@@ -25,15 +27,21 @@ public class Manager {
 		}
 	}	
 	
-	public void addPerson(Person person){		
+	public void addPerson(Person person) throws DuplicateSSNException{		
 		//추가하려는 사람이 없을때만 추가되도록 작성
-		if(!list.contains(person)) {
-			list.add(person);
+		boolean find = false;
+		for(Person p : list) {
+			if (p.getSsn() == person.getSsn()) {
+				find = true;
+				
+				
+			}
 		}
+		throw new DuplicateSSNException();
 		
 	}
 	
-	public void deletePerson(int ssn){
+	public void deletePerson(int ssn) throws RecordNotFoundException{
 		
 		//삭제하려는 대상이 있을때에만 삭제가 되도록 작성
 		for (Person p : list) {
@@ -41,6 +49,7 @@ public class Manager {
 				list.remove(p);
 			}
 		}
+		throw new RecordNotFoundException();
 	}
 
 	public Person findPerson(int ssn){
