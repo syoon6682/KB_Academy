@@ -68,6 +68,7 @@ public class BJ16918_봄버맨 {
 				descentNum();
 				fillBomb();
 				explode(findZero());
+
 			}
 		}
 		
