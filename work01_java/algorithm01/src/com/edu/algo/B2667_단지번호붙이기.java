@@ -1,4 +1,4 @@
-package day08.dfs_bfs;
+package com.edu.algo;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
