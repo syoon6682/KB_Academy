@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	
+	table{
+		width: 600px;
+		margin : 0 auto;
+		border : 1px solid black;
+	}
+	
+	table, th, tr, td {
+		border : 1px solid black;
+		border-collapse: collapse;
+	}
+	
+	p, h2{
+		text-align: center;
+	}
+	
+	td{
+		text-align: center;
+	}
+	
+	h2 {
+		color: crimson;
+	}
+	
+	th {
+		color: tomato;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+	
+	/* 직계 자식 */
+	/* HOVER는 이벤트함수 */
+	table>tbody>tr:HOVER{
+		background-color: pink;
+	}
+	
+	
+	
+</style>
+
+</head>
+<body>
+	<h2>A basic HTML table</h2>
+
+<table>
+	<thead>
+		<tr>
+		    <th>Company</th>
+		    <th>Contact</th>
+		    <th>Country</th>
+	  	</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+		    <td>Alfreds Futterkiste</td>
+		    <td>Maria Anders</td>
+		    <td>Germany</td>
+		</tr>
+		<tr>
+		  <td>Centro comercial Moctezuma</td>
+		  <td>Francisco Chang</td>
+		  <td>Mexico</td>
+		</tr>
+		 <tr>
+		  <td>Centro comercial Moctezuma1</td>
+		  <td>Francisco Chang1</td>
+		  <td>Mexico1</td>
+		</tr>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td colspan="3">To understand the example better.</td>
+		</tr>
+	</tfoot>
+</table>
+
+</body>
+</html>
