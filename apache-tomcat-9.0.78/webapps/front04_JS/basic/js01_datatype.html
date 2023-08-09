@@ -1,0 +1,54 @@
+<!-- 
+
+자바스크립트에서 제공하는 6개의 자료형
+1. Number
+2. String
+3. Boolean
+4. 함수형
+5. 객체형
+6. undefined
+
+head 태그 안에 script 태그를 넣어서 활용
+동적값할당 방식으로 변수를 집어넣음
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	var variable;
+	var stringval="string";
+	var numberval = 123;
+	var booleanvar = true;
+	var functionvar = function(){}; <!-- 자료형으로 나오는 함수는 이름이 없음  -> 호출을 못함 -> 익명 함수라고 부름-->
+	var objectvar = {};
+	
+	// 값 출력
+	/*
+	alert(stringvar);
+	alert(numbervar);
+	alert(booleanvar);
+	alert(functionvar);
+	alert(objectvar);
+	alert(stringvar);
+	*/
+	
+	alert((typeof variable));
+	alert((typeof stringvar));
+	alert((typeof numbervar));
+	alert((typeof booleanvar));
+	alert((typeof functionvar));
+	alert((typeof objectvar));
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

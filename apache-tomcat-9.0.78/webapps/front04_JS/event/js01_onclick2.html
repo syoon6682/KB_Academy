@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	h1::selection{
+		background-color: black;
+		color: yellow;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+  function push() {
+	  document.querySelector("#demo").innerHTML = "<h2 style='color:tomato'>Hello getElementById()~~!!</h2>";
+  }
+
+</script>
+
+</head>
+<body>
+
+<h1>What Can JavaScript Do?</h1>
+
+<p id="demo">JavaScript can change HTML content.</p>
+
+<button type="button" onclick="push()">Click Me!</button>
+
+</body>
+</html>

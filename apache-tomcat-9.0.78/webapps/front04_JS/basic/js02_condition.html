@@ -1,0 +1,43 @@
+<!-- 
+
+javascript에서 사용하는 조건문과 함께 
+가장 많이 출력의 형식으로 쓰이는 prompt()
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+var usernumber = prompt("숫자입력하세요");
+
+/*
+if (usernumber != "") {
+	
+	if(usernumber%3==0){
+		alert("3의 배수입니다.");
+	} else{
+		alert("3의 배수 아닙니다.");	
+	}
+} else {
+	alert("입력해");
+}
+*/
+
+if (usernumber != "") 
+	(usernumber%3==0) ? alert("3의 배수입니다."):alert("3의 배수 아닙니다.");  
+	else 
+		alert("입력해");
+	
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

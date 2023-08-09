@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Insert title here</title>
+<style type="text/css">
+
+.accent{
+	color: crimson;
+	font-size: 18px;
+}
+p.larger{
+	font-size: 24px;
+	font-style: italic;
+}
+
+#box{
+	border: 1px solid red;
+	width: 100px;
+}
+</style>
+</head>
+<body>
+<!-- 
+block tag
+inline tag
+ -->
+<h2>State Attribute</h2>
+<form action="#">
+	<h3 id = "box">Enabled</h3>
+	<input type="text">
+	
+	<h3>Disabled</h3>
+	<input type="text" disabled value="kblife">
+	
+	<h3>Readonly</h3>
+	<input type="text" readonly value="kblife">
+	
+	
+	<h3>Required</h3>
+	<input type="text" required >
+	<input type="submit" value="Data Send">
+	
+</form>
+<hr>
+<h1 class="accent">This heading will not be affected</h1>
+<p class="larger">This paragraph will be red and center-aligned.</p>
+<p class="accent">This paragraph will be red, center-aligned, and in a large font-size.</p> 
+</body>
+</html>
