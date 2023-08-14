@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.angel{border:2px solid black; width:200px; height:250px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){  
+		$('img').addClass('angel');
+		
+		// 2초 간격으로 작업이 진행되도록
+		//특정한 시간이 지난 뒤에 맨 첫번째 이미지가 맨 뒤로 가도록 로직을 작성
+		/*
+		setInterval(function(){
+			$('body').append($('img:eq(0)'));
+		}, 2000);
+		*/
+		
+		
+		/*
+		
+		append는 반드시 태그 뒤에 내용을 부착해야함
+		
+		*/
+		
+		
+		
+		/*
+		setInterval(() =>{
+			$('body').append($('img:eq(0)'));
+		}, 2000);
+		*/
+		
+		// 내용 뒤에 태그를 부착하면 안됨
+		// 지금처럼 내용 뒤에 태그를 부착할 때는 appendTo를 사용해야한다.
+		// 순서가 바뀌면 appendTo
+		setInterval(() =>{
+// 			$('body').append($('img:eq(0)'));
+			$('img:eq(0)').appendTo('body');
+		}, 2000);
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+	<img src="../image/1.jpg">
+	<img src="../image/2.jpg">
+	<img src="../image/3.jpg">
+	<img src="../image/4.jpg">
+</body>
+</html>
+
+
+
