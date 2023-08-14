@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function() {
+	// 함수 호출
+	$('#AjaxBtn').click(function(){
+		// 폼에 입력된 id 값을 받아서 id 변수에 할당
+		var id = $('#id').val();
+		
+		// jquery 비동기 시작
+		$.ajax({
+			// 요청
+			type:'post',
+			url:'../JQueryAjax',
+			data: {'id' : id }, // JSON으로 보내야함
+			
+			// 응답 : 서버 측에서 프로그램 실햄 후 반환하는 데이터를 응답함수 callback에서 받는다.
+			success: function(result){ // 이때 반드시 인자값을 넣어줘야함
+				$('#resultView').html(result);
+			}, //callback
+			
+			error: function(xhr, status, message){
+				alert("error : " + message + ", status : " + status);
+			},
+			
+			timeout : 1000 //1초동안 응답이 없으면 종료됨
+			
+			
+		}) // ajax
+		
+	}); //click
+
+});
+</script>
+
+</head>
+<body>
+	<h2>Servelet 파일로 비동기통신 요청하기</h2>
+	ID: <input type="text" name="id" id="id">
+	<input type="button" value="AjaxBtn" id="AjaxBtn">
+	<div id="resultView"></div>
+</body>
+</html>
