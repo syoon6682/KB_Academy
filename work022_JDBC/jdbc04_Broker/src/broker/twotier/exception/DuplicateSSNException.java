@@ -1,6 +1,6 @@
-package we.pet.exception;
+package broker.twotier.exception;
 
-public class DuplicateSSNException extends Exception {
+public class DuplicateSSNException extends Exception{
 	public DuplicateSSNException(){
 		this("이미 있는 회원이십니다. ");
 	}
