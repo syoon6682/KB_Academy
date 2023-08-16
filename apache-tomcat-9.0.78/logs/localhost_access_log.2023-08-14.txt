@@ -145,3 +145,8 @@
 127.0.0.1 - - [14/Aug/2023:15:48:47 +0900] "GET / HTTP/1.1" 200 11428
 0:0:0:0:0:0:0:1 - - [14/Aug/2023:15:48:47 +0900] "GET /web01_Servlet/Hello1.html HTTP/1.1" 200 187
 0:0:0:0:0:0:0:1 - - [14/Aug/2023:15:48:49 +0900] "GET /web01_Servlet/My HTTP/1.1" 200 63
+127.0.0.1 - - [14/Aug/2023:16:25:07 +0900] "GET / HTTP/1.1" 200 11428
+0:0:0:0:0:0:0:1 - - [14/Aug/2023:16:25:07 +0900] "GET /front05_jquery/5_ajax/ajax04_Servlet.html HTTP/1.1" 200 1227
+0:0:0:0:0:0:0:1 - - [14/Aug/2023:16:25:13 +0900] "POST /front05_jquery/JQueryAjax HTTP/1.1" 200 3
+0:0:0:0:0:0:0:1 - - [14/Aug/2023:16:25:14 +0900] "POST /front05_jquery/JQueryAjax HTTP/1.1" 200 3
+0:0:0:0:0:0:0:1 - - [14/Aug/2023:16:25:14 +0900] "POST /front05_jquery/JQueryAjax HTTP/1.1" 200 3
