@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 사용자 정의 빈 :: player01 -->
+<bean id="diceA" class="spring.service.dice.Impl.DiceAImpl"></bean>
+<bean id="diceB" class="spring.service.dice.Impl.DiceBImpl"></bean>
+<bean id="diceC" class="spring.service.dice.Impl.DiceCImpl"></bean>
+
+<!-- 사용자 정의 빈: A주사위를 주입 -> 생성자 주입 -->
+<bean id="player01" class="spring.service.dice.play.Player02">
+	<constructor-arg ref="diceA"> </constructor-arg>
+ </bean>
+ 
+<!-- 사용자 정의 빈: B주사위를 주입 -> 생성자 주입 -->
+ <bean id="player02" class="spring.service.dice.play.Player02">
+	<constructor-arg ref="diceB"> </constructor-arg>
+ </bean>
+ 
+ <!-- player3에게 주사위 C를 주입: setter 주입 -->
+  <bean id="player03" class="spring.service.dice.play.Player02">
+	<property name="dice" ref="diceC"/> 
+ </bean>
+
+</beans>
