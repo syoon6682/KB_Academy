@@ -1,34 +1,32 @@
-package spring.service.dice.Impl;
+package spring.service.dice.impl;
 
-import spring.service.dice.DIce;
+import java.util.Random;
 
-public class DiceAImpl implements DIce{
+import spring.service.dice.Dice;
+
+public class DiceAImpl implements Dice{
+
 	
 	private int value;
 	
-	///Constructor
 	public DiceAImpl() {
-		System.out.println("::"+getClass().getName()+" 생성자....");
+		System.out.println("::" + getClass().getName()+":: 생성자");
 	}
 	
 	public DiceAImpl(int value) {
-		this.value=value;
-		System.out.println("::"+getClass().getName()+" 명시적생성자....");
-	}
-
-	//Method (getter/setter)
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
+		value = new Random().nextInt(6)+1;
+		System.out.println("::" + getClass().getName()+":: 생성자");
 	}
 	
 	@Override
 	public void selectedNumber() {
-		// TODO Auto-generated method stub
-		
+		value = new Random().nextInt(6) + 1;
 	}
 
-
+	@Override
+	public int getValue() {
+		
+		return value;
+	}
+	
 }

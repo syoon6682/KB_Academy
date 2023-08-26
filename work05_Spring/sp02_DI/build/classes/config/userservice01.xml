@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- DI Container가 아래 주문서를 보고 작동함 -->
+
+<!-- API Bean -->
+<bean id="pw" class="java.lang.String">
+	<constructor-arg value="7777"></constructor-arg>
+</bean>
+<bean id="user01" class="spring.service.domain.User">
+	<property name="userId" value="01유저"></property>
+	<property name="age" value="01"></property>
+</bean>
+<bean id="user02" class="spring.service.domain.User">
+	<property name="userId" value="02유저"></property>
+	<property name="age" value="02"></property>
+	<property name="password" ref="pw"></property>
+</bean>
+<bean id="user03" class="spring.service.domain.User">
+</bean>
+<bean id="user04" class="spring.service.domain.User">
+	<constructor-arg index="0" value="04"></constructor-arg>
+	<constructor-arg index="1" value="0404"></constructor-arg>
+	<constructor-arg index="2" value="04유저"></constructor-arg>
+</bean>
+<bean id="user05" class="spring.service.domain.User">
+	<constructor-arg type="int" value="05"></constructor-arg>
+	<constructor-arg name="password" value="0505"></constructor-arg>
+	<constructor-arg index="2" value="05유저"></constructor-arg>
+</bean>
+
+</beans>

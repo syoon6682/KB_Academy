@@ -52,21 +52,3 @@ public class MyBatisTestApp01 {
 		System.out.println(":: 2. get(SELECT)  ? "+name);
 	}//end of main
 }//end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

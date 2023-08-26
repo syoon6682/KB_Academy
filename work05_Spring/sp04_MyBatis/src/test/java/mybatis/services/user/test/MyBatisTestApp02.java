@@ -25,7 +25,7 @@ public class 	MyBatisTestApp02 {
 				
 		
 		//==> 1. xml metadata 읽는 Stream 생성
-		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig01.xml");
+		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig02.xml");
 		
 		//==> 2. Reader 객체를 이용 xml metadata 에 설정된 각정 정보를 접근, 사용가능한 
 		//==>     SqlMapClient  객체 생성
@@ -83,7 +83,7 @@ public class 	MyBatisTestApp02 {
 		
 		
 	
-		//6. getUser :: $ 대입자를 이용한 like 연산자 검색==> 검색결과 존재 확인 
+		//5. getUser :: $ 대입자를 이용한 like 연산자 검색==> 검색결과 존재 확인 
 		user.setUserId("01");
 		System.out.println(":: 5. 01로 끝나는 userId User(SELECT)  ? ");
 		 list = session.selectList("UserMapper02.getUser04",user);

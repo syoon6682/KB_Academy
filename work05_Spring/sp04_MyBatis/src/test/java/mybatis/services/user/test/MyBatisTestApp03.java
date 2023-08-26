@@ -24,7 +24,7 @@ public class MyBatisTestApp03 {
 		//==> mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
 		
 		//==> 1. xml metadata 읽는 Stream 생성
-		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig01.xml");
+		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig03.xml");
 		
 		//==> 2. Reader 객체를 이용 xml metadata 에 설정된 각정 정보를 접근, 사용가능한 
 		//==>   SqlSession  객체 생성
@@ -80,7 +80,7 @@ public class MyBatisTestApp03 {
 		
 		//6. User01.getUserList 
 		System.out.println(":: 6. getUserList(SELECT)  ? ");
-		 list = session.selectList("UserMapper01.getUserList");
+		 list = session.selectList("UserMapper.getUserList");
 		for (int i =0 ;  i < list.size() ; i++) {
 			System.out.println( "<"+ ( i +1 )+"> 번째 회원.."+ list.get(i).toString() );
 		}

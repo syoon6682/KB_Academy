@@ -19,8 +19,8 @@ public class JDBCTestApp {
 	public static void main(String[] args) {
 		//DBMS 접근정보
 		String dburl = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-		String dbuser ="scott";
-		String dbpwd = "tiger";
+		String dbuser ="mykb";
+		String dbpwd = "1234";
 
 		//JDBC을 이용하기 위한 객체 생성
 		Connection con = null;
@@ -32,7 +32,7 @@ public class JDBCTestApp {
 
 		try{		
 			//1단계 connection
-			Class.forName("oracle.jdbc.driver.Driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(dburl,dbuser,dbpwd);
 			
 			//2단계 SELECT 문 생성 및 전송 

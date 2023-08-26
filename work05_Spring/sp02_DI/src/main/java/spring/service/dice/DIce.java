@@ -1,6 +1,7 @@
 package spring.service.dice;
 
-public interface DIce {
+public interface Dice {
 	void selectedNumber();
 	int getValue();
+	
 }

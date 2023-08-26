@@ -2,31 +2,36 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
-<properties resource="config/dbconn.properties"/>
-
- 
-<typeAliases>
-	<typeAlias type="mybatis.services.domain.User" alias="user"/>
-</typeAliases>
-
-<environments default="DEVELOPMENT">
-	<environment id="DEVELOPMENT">
-		<transactionManager type="JDBC"></transactionManager>
-		<dataSource type="UNPOOLED">
-			<property name="driver" value="${jdbc.oracle.driver}"/>
-			<property name="url" value="${jdbc.oracle.url}"/>
-			<property name="username" value="${jdbc.oracle.username}"/>
-			<property name="password" value="${jdbc.oracle.password}"/>
-		</dataSource>
-	</environment>
-</environments>
+	<properties resource="config/dbconn.properties"></properties>
 	
-<mappers>
-	<mapper resource="mapper/mybatis-userservice-mapping.xml"/>
-	<mapper resource="mapper/mybatis-userservice-mapping01.xml"/>
-	<mapper resource="mapper/mybatis-userservice-mapping02.xml"/>
-	<mapper resource="mapper/mybatis-userservice-mapping03.xml"/>
-</mappers>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
 	
+	<typeAliases>
+		<!-- <typeAlias type="mybatis.services.domain.User" alias="user" /> -->
+		<package name="mybatis.services.domain"/>
+	</typeAliases>
+
+	<environments default="AA">
+		<environment id="AA">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${jdbc.oracle.driver}" />
+				<property name="url" value="${jdbc.oracle.url}" />
+				<property name="username" value="${jdbc.oracle.username}" />
+				<property name="password" value="${jdbc.oracle.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mapper/mybatis-userservice-mapping.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping01.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping02.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping03.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping05.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping07.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping08.xml" />
+		<mapper resource="mapper/mybatis-userservice-mapping10.xml" />
+	</mappers>
 </configuration>
