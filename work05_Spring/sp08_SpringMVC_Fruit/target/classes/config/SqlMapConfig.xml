@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="config/dbconn.properties"></properties>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<typeAliases>
+		<package name="com.service.spring.domain"/> <!-- item rudfh -->
+	</typeAliases>
+
+<!-- 이 부분은 MyBatis 단위 테스트용 -->
+
+	<environments default="DEVELOPMENT">
+		<environment id="DEVELOPMENT">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${jdbc.oracle.driver}" />
+				<property name="url" value="${jdbc.oracle.url}" />
+				<property name="username" value="${jdbc.oracle.username}" />
+				<property name="password" value="${jdbc.oracle.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mapper/item-shopping-mapping.xml" />
+	</mappers>
+	
+</configuration>

@@ -17,7 +17,7 @@ public class B2667_단지번호붙이기 {
 	static int[] di = {-1,1,0,0};
 	static int[] dj = {0,0,-1,1};
 	public static void main(String[] args) throws IOException {
-		//	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));;;
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("input.txt")));	//	파일로부터 읽기
 		StringTokenizer st = new StringTokenizer(br.readLine());
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) - MyBatis 
+	Framework 은 XML MetaData를 사용 SQL구문을 관리하며, (SQL은 xml 을 통해 적절히 캡슐화 되어 애플리케이선 
+	의 외부로 분리함) - SQL문의 입력(?) / 출력(?)을 매핑한다. <== 아래의 select element 참조 -->
+<mapper namespace="sql.pms.mapper">
+	<insert id="insert" parameterType="phone">
+		INSERT
+		INTO phones(num, model,
+		price, vcode)
+		VALUES(#{num}, #{model}, #{price},
+		#{vcode})
+	</insert>
+
+	<!-- login으로 아이디 지정 안한 이유 : 동적쿼리 -->
+	<select id="selectUser" parameterType="userinfo"
+		resultType="userinfo">
+		SELECT
+		id, pw
+		FROM userinfo
+		WHERE id=#{id}
+		<if test="pw!=null">
+			AND pw = #{pw}
+		</if>
+
+	</select>
+
+
+	<resultMap type="phone" id="phoneWithCompany">
+		<id column="num" property="num" />
+		<result column="model" property="model" />
+		<result column="price" property="price" />
+		<result column="vcode" property="vcode" />
+		<association property="company" javaType="company">
+			<id column="vcode" property="vcode" />
+			<result column="vendor" property="vendor" />
+		</association>
+	</resultMap>
+
+	<!-- 모든 폰 조회하기 & 특정 폰 조회하기 :: Join 사용 -->
+	<!-- Sqlsession(SqlSessionTemplate): selectList(), selectOne() 사용 -->
+	<select id="select" parameterType="phone"
+		resultMap="phoneWithCompany">
+		SELECT
+		p.num, p.model, p.price, p.vcode, c.vendor
+		FROM phones p, company
+		c
+		JOIN
+		company c ON (p.vcode = c.vcode) <!-- 모든 폰 조회 가능 -->
+
+		<if test="num!=null">
+			WHERE num=#{num}
+		</if>
+
+	</select>
+
+	<!-- list를 활용한 복수 삭제 -->
+	<delete id="delete" parameterType="list">
+		DELETE
+		FROM phones
+		WHERE num in
+		<foreach collection="list" item="num" open="(" close=")"
+			separator=",">
+			#{num}
+		</foreach>
+	</delete>
+	
+	<!--  RestController 부분 -->
+	<update id="update" parameterType="phone">
+		UPDATE phones
+		SET model=#{model}, price=#{price}, vcode=#{vcode}
+		WHERE num=#{num}
+	</update>
+</mapper>
